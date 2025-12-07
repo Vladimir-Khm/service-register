@@ -72,16 +72,16 @@ func (s *Server) initRoutes(config *config.Config, authMiddleware *middlewares.A
 	s.router.POST("/method", controller.user.CreateMethod)
 	s.router.POST("/argument", controller.user.CreateArgument)
 
-	s.router.PATCH("/service", controller.user.UpdateService)
-	s.router.PATCH("/method", controller.user.UpdateMethod)
-	s.router.PATCH("/argument", controller.user.UpdateArgument)
+	s.router.PATCH("/service/:ID", controller.user.UpdateService)
+	s.router.PATCH("/method/:ID", controller.user.UpdateMethod)
+	s.router.PATCH("/argument/:ID", controller.user.UpdateArgument)
 
-	s.router.DELETE("/service", controller.user.DeleteService)
-	s.router.DELETE("/method", controller.user.DeleteMethod)
-	s.router.DELETE("/argument", controller.user.DeleteArgument)
+	s.router.DELETE("/service/:ID", controller.user.DeleteService)
+	s.router.DELETE("/method/:ID", controller.user.DeleteMethod)
+	s.router.DELETE("/argument/:ID", controller.user.DeleteArgument)
 
 	s.router.GET("/allServices", controller.user.GetAllServices)
-	s.router.GET("/serviceByID", controller.user.GetServiceByID)
+	s.router.GET("/serviceByID/:ID", controller.user.GetServiceByID)
 
 }
 
